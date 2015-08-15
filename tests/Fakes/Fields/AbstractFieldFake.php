@@ -1,4 +1,7 @@
 <?php
+
+namespace Humweb\FormBuilder\Tests\Fakes\Fields;
+
 use Humweb\FormBuilder\Fields\AbstractField;
 
 /**
@@ -8,6 +11,9 @@ use Humweb\FormBuilder\Fields\AbstractField;
  */
 class AbstractFieldFake extends AbstractField
 {
+
+    protected $fieldType = 'text';
+
 
     /**
      * Render the field

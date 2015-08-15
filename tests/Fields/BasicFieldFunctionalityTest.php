@@ -1,6 +1,8 @@
 <?php
 
-namespace Humweb\FormBuilders\Tests;
+namespace Humweb\FormBuilders\Tests\Fields;
+
+use Humweb\FormBuilder\Tests\Fakes\Fields\AbstractFieldFake;
 
 /**
  * Test ClassResolver class.
@@ -21,7 +23,7 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->field = new \AbstractFieldFake('title', 'Test Title');
+        $this->field = new AbstractFieldFake('title', 'Test Title');
     }
 
 
