@@ -4,9 +4,8 @@ namespace Humweb\FormBuilder\Fields;
 
 class TextField extends AbstractField
 {
-
     /**
-     * Render the field
+     * Render the field.
      *
      * @return string
      */
@@ -19,9 +18,8 @@ class TextField extends AbstractField
         return '<input '.$this->renderAttributes().' />';
     }
 
-
     /**
-     * Render the value
+     * Render the value.
      *
      * @return string
      */

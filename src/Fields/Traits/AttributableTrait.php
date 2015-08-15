@@ -6,9 +6,8 @@ trait AttributableTrait
 {
     protected $attributes = [];
 
-
     /**
-     * Append Attribute
+     * Append Attribute.
      *
      * @param string $key
      * @param string $value
@@ -26,9 +25,8 @@ trait AttributableTrait
         return $this;
     }
 
-
     /**
-     * Shortcut for get/set attribute methods
+     * Shortcut for get/set attribute methods.
      *
      * @param      $key
      * @param null $value
@@ -46,9 +44,8 @@ trait AttributableTrait
         return $this;
     }
 
-
     /**
-     * Get attribute value
+     * Get attribute value.
      *
      * @param $key
      *
@@ -59,9 +56,8 @@ trait AttributableTrait
         return isset($this->attributes[$key]) ? $this->attributes[$key] : null;
     }
 
-
     /**
-     * Set attribute value
+     * Set attribute value.
      *
      * @param      $key
      * @param null $value
@@ -70,16 +66,15 @@ trait AttributableTrait
      */
     public function setAttribute($key, $value = null)
     {
-        if ( ! is_null($value)) {
+        if (!is_null($value)) {
             $this->attributes[$key] = $value;
         }
 
         return $this;
     }
 
-
     /**
-     * Pluck a value/string from an attributes value
+     * Pluck a value/string from an attributes value.
      *
      * @param string $key
      * @param string $value
@@ -88,11 +83,11 @@ trait AttributableTrait
      */
     public function pluckAttributeValue($key, $value)
     {
-        if ( ! isset($this->attributes[$key])) {
+        if (!isset($this->attributes[$key])) {
             return $this;
         }
 
-        $re    = [' '.$value, $value.' ', $value];
+        $re = [' '.$value, $value.' ', $value];
         $value = trim(str_replace($re, '', $this->attributes[$key]));
 
         if ($value == '') {
@@ -104,9 +99,8 @@ trait AttributableTrait
         return $this;
     }
 
-
     /**
-     * Remove a value
+     * Remove a value.
      *
      * @param string|null $key
      *
@@ -121,9 +115,8 @@ trait AttributableTrait
         return $this;
     }
 
-
     /**
-     * Render attributes to key/value string
+     * Render attributes to key/value string.
      *
      * @return string
      */

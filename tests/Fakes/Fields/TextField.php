@@ -1,6 +1,6 @@
 <?php
 
-namespace Humweb\FormBuilder\Tests\Fakes\Fields;
+namespace Humweb\FormBuilder\tests\Fakes\Fields;
 
 class TextField extends AbstractFieldFake
 {

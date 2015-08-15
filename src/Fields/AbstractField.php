@@ -8,10 +8,9 @@ abstract class AbstractField
 {
     use AttributableTrait;
 
-    protected $name      = '';
-    protected $value     = '';
+    protected $name = '';
+    protected $value = '';
     protected $fieldType = '';
-
 
     /**
      * AbstractField constructor.
@@ -22,30 +21,27 @@ abstract class AbstractField
      */
     public function __construct($name, $value = '', array $attributes = [])
     {
-        $this->name       = $name;
-        $this->value      = $value;
+        $this->name = $name;
+        $this->value = $value;
         $this->attributes = $attributes;
     }
 
-
     /**
-     * Render the field
+     * Render the field.
      *
      * @return string
      */
     abstract public function render();
 
-
     /**
-     * Render the value
+     * Render the value.
      *
      * @return string
      */
     abstract public function renderValue();
 
-
     /**
-     * Get field name
+     * Get field name.
      *
      * @return string
      */
@@ -53,7 +49,6 @@ abstract class AbstractField
     {
         return $this->name;
     }
-
 
     /**
      * @param string $name
@@ -67,7 +62,6 @@ abstract class AbstractField
         return $this;
     }
 
-
     /**
      * @return string
      */
@@ -75,7 +69,6 @@ abstract class AbstractField
     {
         return $this->value;
     }
-
 
     /**
      * @param string $value
@@ -89,7 +82,6 @@ abstract class AbstractField
         return $this;
     }
 
-
     /**
      * @return string
      */
@@ -97,7 +89,6 @@ abstract class AbstractField
     {
         return $this->fieldType;
     }
-
 
     public function addClass($class)
     {
@@ -110,7 +101,6 @@ abstract class AbstractField
         return $this;
     }
 
-
     public function removeClass($class)
     {
         $this->pluckAttributeValue('class', $class);
@@ -118,10 +108,8 @@ abstract class AbstractField
         return $this;
     }
 
-
     public function __toString()
     {
         return $this->render();
     }
-
 }

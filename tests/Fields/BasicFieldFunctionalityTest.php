@@ -1,22 +1,18 @@
 <?php
 
-namespace Humweb\FormBuilders\Tests\Fields;
+namespace Humweb\FormBuilders\tests\Fields;
 
 use Humweb\FormBuilder\Tests\Fakes\Fields\AbstractFieldFake;
 
 /**
  * Test ClassResolver class.
- *
- * @package Humweb\Features
  */
 class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * @var Humweb\FormBuilder\Fields\AbstractField
      */
     protected $field;
-
 
     /**
      * {@inheritdoc}
@@ -26,7 +22,6 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
         $this->field = new AbstractFieldFake('title', 'Test Title');
     }
 
-
     /**
      * {@inheritdoc}
      */
@@ -34,7 +29,6 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
     {
         unset($this->field);
     }
-
 
     /**
      * @test
@@ -48,7 +42,6 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('foo', $this->field->getValue());
     }
 
-
     /**
      * @test
      */
@@ -61,7 +54,6 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('post-title', $this->field->getName());
     }
 
-
     /**
      * @test
      */
@@ -73,7 +65,6 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('foo', $this->field->getAttribute('id'));
     }
-
 
     /**
      * @test
@@ -88,7 +79,6 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(null, $this->field->getAttribute('id'));
     }
-
 
     /**
      * @test
@@ -106,7 +96,6 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('foo bar', $this->field->getAttribute('class'));
     }
-
 
     /**
      * @test
@@ -129,51 +118,44 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('baz boom', $this->field->getAttribute('class'));
     }
 
-
     /**
      * @test
      */
     public function is_can_render_attributes_to_key_value_string()
     {
-
         $this->field->setAttribute('class', 'foo bar');
         $this->field->setAttribute('id', 'title');
         $this->field->setAttribute('value', 'Test Title');
 
-        $str         = $this->field->renderAttributes();
+        $str = $this->field->renderAttributes();
         $expectedStr = 'class="foo bar" id="title" value="Test Title"';
 
         $this->assertEquals($expectedStr, $str);
     }
-
 
     /**
      * @test
      */
     public function is_can_render_form_field()
     {
-
         $this->field->setAttribute('class', 'foo bar');
         $this->field->setAttribute('id', 'title');
         $this->field->setAttribute('value', 'Test Title');
 
-        $str         = $this->field->render();
+        $str = $this->field->render();
         $expectedStr = '<input class="foo bar" id="title" value="Test Title" type="text" name="title" />';
 
         $this->assertEquals($str, $expectedStr);
     }
-
 
     /**
      * @test
      */
     public function is_can_render_value()
     {
-
-        $str         = $this->field->renderValue();
+        $str = $this->field->renderValue();
         $expectedStr = 'Test Title';
 
         $this->assertEquals($str, $expectedStr);
     }
-
 }

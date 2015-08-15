@@ -1,19 +1,15 @@
 <?php
 
-namespace Humweb\FormBuilder\Tests\Resolver;
+namespace Humweb\FormBuilder\tests\Resolver;
 
 use Humweb\FormBuilder\Resolvers\FieldResolver;
 
 /**
  * Test ClassResolver class.
- *
- * @package Humweb\Features
  */
 class ClassResolverTest extends \PHPUnit_Framework_TestCase
 {
-
     protected $resolver;
-
 
     /**
      * {@inheritdoc}
@@ -24,7 +20,6 @@ class ClassResolverTest extends \PHPUnit_Framework_TestCase
         $this->resolver->setNamespace('Humweb\\FormBuilder\\Fields')->setSuffix('Field');
     }
 
-
     /**
      * {@inheritdoc}
      */
@@ -32,7 +27,6 @@ class ClassResolverTest extends \PHPUnit_Framework_TestCase
     {
         unset($this->resolver);
     }
-
 
     /**
      * @test
@@ -46,7 +40,6 @@ class ClassResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $actual);
     }
 
-
     /**
      * @test
      */
@@ -59,7 +52,6 @@ class ClassResolverTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $actual);
     }
 
-
     /**
      * @test
      */
@@ -68,7 +60,7 @@ class ClassResolverTest extends \PHPUnit_Framework_TestCase
         $this->resolver->addNamespace('tests', 'Humweb\FormBuilder\Tests\Fakes\Fields');
 
         $expected = '\Humweb\FormBuilder\Tests\Fakes\Fields\TextField';
-        $actual   = $this->resolver->resolve('tests::text');
+        $actual = $this->resolver->resolve('tests::text');
 
         $this->assertEquals($expected, $actual);
 
@@ -76,7 +68,6 @@ class ClassResolverTest extends \PHPUnit_Framework_TestCase
         $class = new $actual('title', 'val');
         $this->assertInstanceOf($expected, $class);
     }
-
 
     /**
      * @test
@@ -87,5 +78,4 @@ class ClassResolverTest extends \PHPUnit_Framework_TestCase
 
         $this->resolver->resolve('App\Foo\Bar\Baz');
     }
-
 }

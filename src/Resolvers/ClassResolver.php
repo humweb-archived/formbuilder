@@ -7,12 +7,10 @@ namespace Humweb\FormBuilder\Resolvers;
  */
 class ClassResolver
 {
-
-    protected $suffix    = '';
+    protected $suffix = '';
     protected $delimiter = '::';
 
     protected $namespaces = [];
-
 
     /**
      * @param string $class
@@ -32,8 +30,7 @@ class ClassResolver
         }
 
         // Check extra namespaces
-        if ( ! empty($this->namespaces) && ($class = $this->tryNamespace($class)) !== false) {
-
+        if (!empty($this->namespaces) && ($class = $this->tryNamespace($class)) !== false) {
             return $class;
         }
 
@@ -45,9 +42,8 @@ class ClassResolver
         throw new \InvalidArgumentException('Unable to resolve class: '.$className.' or '.$assembledClass);
     }
 
-
     /**
-     * Format class name to "studly case"
+     * Format class name to "studly case".
      *
      * @param string $name
      *
@@ -59,7 +55,6 @@ class ClassResolver
 
         return str_replace(' ', '', $name);
     }
-
 
     /**
      * @param mixed $namespace
@@ -73,7 +68,6 @@ class ClassResolver
         return $this;
     }
 
-
     /**
      * @return mixed
      */
@@ -82,12 +76,10 @@ class ClassResolver
         return $this->namespace;
     }
 
-
     public function addNamespace($name, $namespace)
     {
         $this->namespaces[$name] = $namespace;
     }
-
 
     public function tryNamespace($signature)
     {
@@ -95,7 +87,7 @@ class ClassResolver
             list($namespace, $class) = explode($this->delimiter, $signature);
 
             if (isset($this->namespaces[$namespace])) {
-                $class          = $this->formatClassName($class);
+                $class = $this->formatClassName($class);
                 $assembledClass = '\\'.trim($this->namespaces[$namespace], '\\').'\\'.$class.$this->getSuffix();
 
                 if (class_exists($assembledClass)) {
@@ -106,7 +98,6 @@ class ClassResolver
 
         return false;
     }
-
 
     /**
      * @param string $suffix
@@ -120,7 +111,6 @@ class ClassResolver
         return $this;
     }
 
-
     /**
      * @return string
      */
@@ -128,7 +118,6 @@ class ClassResolver
     {
         return $this->suffix;
     }
-
 
     /**
      * @param string $delimiter
@@ -141,7 +130,6 @@ class ClassResolver
 
         return $this;
     }
-
 
     /**
      * @return string

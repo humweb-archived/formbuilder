@@ -1,22 +1,18 @@
 <?php
 
-namespace Humweb\FormBuilder\Tests\Fakes\Fields;
+namespace Humweb\FormBuilder\tests\Fakes\Fields;
 
 use Humweb\FormBuilder\Fields\AbstractField;
 
 /**
- * AbstractFieldFake
- *
- * @package ${NAMESPACE}
+ * AbstractFieldFake.
  */
 class AbstractFieldFake extends AbstractField
 {
-
     protected $fieldType = 'text';
 
-
     /**
-     * Render the field
+     * Render the field.
      *
      * @return string
      */
@@ -29,9 +25,8 @@ class AbstractFieldFake extends AbstractField
         return '<input '.$this->renderAttributes().' />';
     }
 
-
     /**
-     * Render the value
+     * Render the value.
      *
      * @return string
      */
