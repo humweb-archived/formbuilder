@@ -1,17 +1,9 @@
 
 
+
 # FormBuilder
 
-[![Build Status](https://img.shields.io/travis/humweb/formbuilder/master.svg?style=flat-square)](https://travis-ci.org/humweb/formbuilder)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/humweb/formbuilder/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/humweb/formbuilder/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/humweb/formbuilder/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/humweb/formbuilder/?branch=master)
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/726e2642-6553-40e1-8b4f-71f8d905d7f9/mini.png)](https://insight.sensiolabs.com/projects/726e2642-6553-40e1-8b4f-71f8d905d7f9)
-[![Total Downloads](https://img.shields.io/packagist/dt/humweb/formbuilder.svg?style=flat-square)](https://packagist.org/packages/humweb/formbuilder)
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/humweb/formbuilder.svg?style=flat-square)](https://packagist.org/packages/humweb/formbuilder)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-
-
-Feature Toggle allows developers to toggle on/off formbuilder in the system using one or multiple Strategies.
+FormBuilder allows a developer to create and compose form fields
 
 ## Install
 
