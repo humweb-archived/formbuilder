@@ -7,8 +7,11 @@ namespace Humweb\FormBuilder\Resolvers;
  */
 class ClassResolver
 {
-    protected $namespace = '';
+
     protected $suffix    = '';
+    protected $delimiter = '::';
+
+    protected $namespaces = [];
 
 
     /**
@@ -18,19 +21,28 @@ class ClassResolver
      */
     public function resolve($class)
     {
-        $class = $this->formatClassName($class);
 
-        $assembledClass = '\\'.trim($this->getNamespace(), '\\').'\\'.$class.$this->getSuffix();
+        // Check Built-in Fields
+        $className = $this->formatClassName($class);
+
+        $assembledClass = '\\'.trim($this->getNamespace(), '\\').'\\'.$className.$this->getSuffix();
 
         if (class_exists($assembledClass)) {
             return $assembledClass;
         }
 
-        if (class_exists($class)) {
+        // Check extra namespaces
+        if ( ! empty($this->namespaces) && ($class = $this->tryNamespace($class)) !== false) {
+
             return $class;
         }
 
-        throw new \InvalidArgumentException('Unable to resolve class: '.$class.' or '.$assembledClass);
+        // Check if class is resolvable
+        if (class_exists($className)) {
+            return $className;
+        }
+
+        throw new \InvalidArgumentException('Unable to resolve class: '.$className.' or '.$assembledClass);
     }
 
 
@@ -71,6 +83,31 @@ class ClassResolver
     }
 
 
+    public function addNamespace($name, $namespace)
+    {
+        $this->namespaces[$name] = $namespace;
+    }
+
+
+    public function tryNamespace($signature)
+    {
+        if (strpos($signature, $this->delimiter) !== false) {
+            list($namespace, $class) = explode($this->delimiter, $signature);
+
+            if (isset($this->namespaces[$namespace])) {
+                $class          = $this->formatClassName($class);
+                $assembledClass = '\\'.trim($this->namespaces[$namespace], '\\').'\\'.$class.$this->getSuffix();
+
+                if (class_exists($assembledClass)) {
+                    return $assembledClass;
+                }
+            }
+        }
+
+        return false;
+    }
+
+
     /**
      * @param string $suffix
      *
@@ -90,5 +127,27 @@ class ClassResolver
     public function getSuffix()
     {
         return $this->suffix;
+    }
+
+
+    /**
+     * @param string $delimiter
+     *
+     * @return ClassResolver
+     */
+    public function setDelimiter($delimiter)
+    {
+        $this->delimiter = $delimiter;
+
+        return $this;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getDelimiter()
+    {
+        return $this->delimiter;
     }
 }
