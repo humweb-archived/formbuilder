@@ -1,5 +1,20 @@
 {
     "name": "humweb/formbuilder",
+    "description": "Form Builder package",
+    "keywords": [
+        "humweb",
+        "features"
+    ],
+    "homepage": "https://github.com/humweb/forbuilder",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ryan Shofner",
+            "email": "ryun@humboldtweb.com",
+            "homepage": "http://humboldtweb.com",
+            "role": "Developer"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Humweb\\FormBuilder\\": "src/"
@@ -12,6 +27,11 @@
     "autoload-dev": {
         "psr-4": {
             "Humweb\\FormBuilder\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
         }
     }
 }
