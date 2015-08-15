@@ -3,6 +3,11 @@
 
 # FormBuilder
 
+[![Build Status](https://img.shields.io/travis/humweb/formbuilder/master.svg?style=flat-square)](https://travis-ci.org/humweb/formbuilder)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/humweb/formbuilder/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/humweb/formbuilder/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/humweb/formbuilder/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/humweb/formbuilder/?branch=master)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+
 FormBuilder allows a developer to create and compose form fields
 
 ## Install
