@@ -73,6 +73,20 @@ trait AttributableTrait
         return $this;
     }
 
+
+
+    /**
+     * Get the ID attribute
+     *
+     * @param  string  $name
+     * @param  array   $attributes
+     * @return string
+     */
+    public function getIdAttribute($name, $attributes)
+    {
+        return $this->getAttribute('id');
+    }
+
     /**
      * Pluck a value/string from an attributes value.
      *
