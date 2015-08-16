@@ -66,7 +66,7 @@ trait AttributableTrait
      */
     public function setAttribute($key, $value = null)
     {
-        if (!is_null($value)) {
+        if ( ! is_null($value)) {
             $this->attributes[$key] = $value;
         }
 
@@ -83,11 +83,11 @@ trait AttributableTrait
      */
     public function pluckAttributeValue($key, $value)
     {
-        if (!isset($this->attributes[$key])) {
+        if ( ! isset($this->attributes[$key])) {
             return $this;
         }
 
-        $re = [' '.$value, $value.' ', $value];
+        $re    = [' '.$value, $value.' ', $value];
         $value = trim(str_replace($re, '', $this->attributes[$key]));
 
         if ($value == '') {

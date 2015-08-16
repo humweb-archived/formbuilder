@@ -60,12 +60,12 @@ class ClassResolverTest extends \PHPUnit_Framework_TestCase
         $this->resolver->addNamespace('tests', 'Humweb\FormBuilder\Tests\Fakes\Fields');
 
         $expected = '\Humweb\FormBuilder\Tests\Fakes\Fields\TextField';
-        $actual = $this->resolver->resolve('tests::text');
+        $actual   = $this->resolver->resolve('tests::text');
 
         $this->assertEquals($expected, $actual);
 
         // Check if class is instantiable
-        $class = new $actual('title', 'val');
+        $class = $this->resolver->make('tests::text', 'title', 'val');
         $this->assertInstanceOf($expected, $class);
     }
 

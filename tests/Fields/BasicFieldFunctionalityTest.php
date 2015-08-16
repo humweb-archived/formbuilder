@@ -127,7 +127,7 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
         $this->field->setAttribute('id', 'title');
         $this->field->setAttribute('value', 'Test Title');
 
-        $str = $this->field->renderAttributes();
+        $str         = $this->field->renderAttributes();
         $expectedStr = 'class="foo bar" id="title" value="Test Title"';
 
         $this->assertEquals($expectedStr, $str);
@@ -142,7 +142,7 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
         $this->field->setAttribute('id', 'title');
         $this->field->setAttribute('value', 'Test Title');
 
-        $str = $this->field->render();
+        $str         = $this->field->render();
         $expectedStr = '<input class="foo bar" id="title" value="Test Title" type="text" name="title" />';
 
         $this->assertEquals($str, $expectedStr);
@@ -153,7 +153,7 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
      */
     public function is_can_render_value()
     {
-        $str = $this->field->renderValue();
+        $str         = $this->field->renderValue();
         $expectedStr = 'Test Title';
 
         $this->assertEquals($str, $expectedStr);

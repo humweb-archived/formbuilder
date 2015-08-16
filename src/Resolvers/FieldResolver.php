@@ -8,5 +8,5 @@ namespace Humweb\FormBuilder\Resolvers;
 class FieldResolver extends ClassResolver
 {
     protected $namespace = 'Humweb\\FormBuilder\\Fields';
-    protected $suffix = 'Field';
+    protected $suffix    = 'Field';
 }
