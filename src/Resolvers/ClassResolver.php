@@ -13,9 +13,11 @@ class ClassResolver
     protected $namespaces    = [];
     protected $resolverCache = [];
 
+    /**
+     * @return mixed
+     */
     public function make()
     {
-
         // Retrieve arguments list
         $_args = func_get_args();
 
@@ -43,9 +45,8 @@ class ClassResolver
             case 5:
                 $instance = new $class($_args[0], $_args[1], $_args[2], $_args[3], $_args[4]);
                 break;
-            case 6:
+            default:
                 throw new \InvalidArgumentException('Your crazy, that\'s to many arguments.');
-                break;
         }
 
         return $instance;
