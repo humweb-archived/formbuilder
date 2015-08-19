@@ -4,6 +4,7 @@ namespace Humweb\FormBuilder\Fields\Traits;
 
 trait AttributableTrait
 {
+    protected $skipAttributes = [];
     protected $attributes = [];
 
     /**
@@ -73,13 +74,12 @@ trait AttributableTrait
         return $this;
     }
 
-
-
     /**
      * Get the ID attribute
      *
-     * @param  string  $name
-     * @param  array   $attributes
+     * @param  string $name
+     * @param  array  $attributes
+     *
      * @return string
      */
     public function getIdAttribute($name, $attributes)
@@ -138,9 +138,31 @@ trait AttributableTrait
     {
         $result = '';
         foreach ($this->attributes as $key => $value) {
-            $result .= " {$key}=\"{$value}\"";
+            if ( ! $this->isAttributeSkipped($key)) {
+                $result .= ' '.$key.'="'.$this->escapeHtml($value).'"';
+            }
         }
 
         return trim($result);
+    }
+
+    protected function isAttributeSkipped($attr) {
+        return in_array($attr, $this->skipAttributes);
+    }
+    /**
+     * Convert all applicable characters to HTML entities
+     *
+     * @param string $value
+     * @return string
+     *
+     * @Notes
+     *  - Uses UTF-8 encoding.
+     *  - Will convert both double and single quotes.
+     *  - Will not encode existing html entities.
+     *
+     */
+    public function escapeHtml($value)
+    {
+        return htmlentities($value, ENT_QUOTES, 'UTF-8', false);
     }
 }
