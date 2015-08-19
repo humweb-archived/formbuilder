@@ -2,10 +2,10 @@
 
 namespace Humweb\FormBuilder\Fields;
 
-class TextField extends AbstractField
+class TextareaField extends AbstractField
 {
-
-    protected $fieldType = 'text';
+    protected $fieldType      = 'textarea';
+    protected $skipAttributes = ['value'];
 
     /**
      * Render the field.
@@ -14,11 +14,9 @@ class TextField extends AbstractField
      */
     public function render()
     {
-        $this->setAttribute('type', 'text');
-        $this->setAttribute('value', $this->value);
         $this->setAttribute('name', $this->name);
 
-        return '<input '.$this->renderAttributes().' />';
+        return '<textarea '.$this->renderAttributes().'>'.$this->escapeHtml($this->value).'</textarea>';
     }
 
     /**

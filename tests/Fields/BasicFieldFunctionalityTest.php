@@ -14,17 +14,11 @@ class BasicFieldFunctionalityTest extends \PHPUnit_Framework_TestCase
      */
     protected $field;
 
-    /**
-     * {@inheritdoc}
-     */
     public function setUp()
     {
         $this->field = new AbstractFieldFake('title', 'Test Title');
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function tearDown()
     {
         unset($this->field);
