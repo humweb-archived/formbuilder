@@ -8,9 +8,26 @@ abstract class AbstractField
 {
     use AttributableTrait;
 
-    protected $name      = '';
-    protected $value     = '';
+    /**
+     * Field type string
+     *
+     * @var string
+     */
     protected $fieldType = '';
+
+    /**
+     * Name of field
+     *
+     * @var string
+     */
+    protected $name = '';
+
+    /**
+     * Value of field
+     *
+     * @var string
+     */
+    protected $value = '';
 
     /**
      * AbstractField constructor.
@@ -25,6 +42,15 @@ abstract class AbstractField
         $this->value      = $value;
         $this->attributes = $attributes;
     }
+
+
+    /**
+     * Render the field.
+     *
+     * @return string
+     */
+    abstract public function render();
+
 
     /**
      * Render the value.
@@ -106,10 +132,4 @@ abstract class AbstractField
         return $this->render();
     }
 
-    /**
-     * Render the field.
-     *
-     * @return string
-     */
-    abstract public function render();
 }

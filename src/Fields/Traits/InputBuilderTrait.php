@@ -8,7 +8,8 @@ trait InputBuilderTrait
     /**
      * Create a form input field.
      *
-     * @param  string  $type
+     * @param  string $type
+     *
      * @return string
      */
     public function input($type)
@@ -17,7 +18,7 @@ trait InputBuilderTrait
         $this->setAttribute('value', $this->value);
         $this->setAttribute('name', $this->name);
 
-        return $selfClosing ? '<input'.$this->renderAttributes().' />';
+        return '<input'.$this->renderAttributes().' />';
     }
 
 }

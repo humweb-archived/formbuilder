@@ -4,7 +4,18 @@ namespace Humweb\FormBuilder\Fields;
 
 class TextareaField extends AbstractField
 {
-    protected $fieldType      = 'textarea';
+    /**
+     * Field type string
+     *
+     * @var string
+     */
+    protected $fieldType = 'textarea';
+
+    /**
+     * Attributes to skip while rendering
+     *
+     * @var array
+     */
     protected $skipAttributes = ['value'];
 
     /**
