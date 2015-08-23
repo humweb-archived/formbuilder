@@ -15,10 +15,10 @@ trait InputBuilderTrait
     public function input($type)
     {
         $this->setAttribute('type', $type);
-        $this->setAttribute('value', $this->value);
         $this->setAttribute('name', $this->name);
+        $this->setAttribute('value', $this->value);
 
-        return '<input'.$this->renderAttributes().' />';
+        return '<input '.$this->renderAttributes().' />';
     }
 
 }
